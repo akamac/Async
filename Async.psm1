@@ -1,6 +1,13 @@
 $Script:PSDefaultParameterValues = $Global:PSDefaultParameterValues.Clone()
 
 try {
+	#$MyInvocation.MyCommand.Module.RequiredModules does not work here
+	(Test-ModuleManifest $PSScriptRoot\*.psd1).RequiredModules | % {
+		Import-Module -RequiredVersion $_.Version -Name $_.Name -ea Stop
+	}
+} catch {
+	Write-Error $_.Exception
+	throw 'Failed to load required dependency'
 }
 
 try {
