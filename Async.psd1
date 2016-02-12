@@ -1,6 +1,6 @@
 ﻿@{
 	RootModule = 'Async.psm1'
-	ModuleVersion = '1.0.0'
+	ModuleVersion = '1.0.2'
 	GUID = '1b03fd50-6a66-451a-bbd2-27346bcf2dde'
 	Author = 'Alexey Miasoedov'
 	CompanyName = 'Intermedia'
@@ -18,7 +18,10 @@
 	# TypesToProcess = @()
 	# FormatsToProcess = @()
 	# NestedModules = @()
-	FunctionsToExport = '*-*' # only Verb-Noun; avoid helper functions
+	FunctionsToExport = #'*-*' # only Verb-Noun; avoid helper functions
+		'Create-RunspacePool',
+		'Invoke-Async',
+		'Receive-AsyncResults'
 	CmdletsToExport = '*'
 	VariablesToExport = '*'
 	AliasesToExport = '*'

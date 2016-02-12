@@ -1,5 +1,4 @@
-$Script:PSDefaultParameterValues = $Global:PSDefaultParameterValues.Clone()
-
+$PSDefaultParameterValues = Import-PSDefaultParameterValues
 try {
 	#$MyInvocation.MyCommand.Module.RequiredModules does not work here
 	(Test-ModuleManifest $PSScriptRoot\*.psd1).RequiredModules | % {
@@ -9,6 +8,8 @@ try {
 	Write-Error $_.Exception
 	throw 'Failed to load required dependency'
 }
+
+#------------------------------------------------------------------------------
 
 try {
 Add-Type -ea SilentlyContinue -Language CSharpVersion3 -TypeDefinition (Get-Content $PSScriptRoot\StubHost.cs)
