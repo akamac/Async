@@ -1,6 +1,6 @@
 ﻿@{
 	RootModule = 'Async.psm1'
-	ModuleVersion = '1.0.2'
+	ModuleVersion = '1.0.3'
 	GUID = '1b03fd50-6a66-451a-bbd2-27346bcf2dde'
 	Author = 'Alexey Miasoedov'
 	CompanyName = 'Intermedia'
